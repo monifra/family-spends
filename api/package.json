@@ -1,0 +1,22 @@
+{
+  "name": "family-spends",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "seed": "nose seed/seed.js",
+    "dev": "node_modules/.bin/nodemon src/index.js"
+  },
+  "author": "Monika Frankowska",
+  "license": "ISC",
+  "devDependencies": {
+    "nodemon": "^2.0.4"
+  },
+  "dependencies": {
+    "express": "^4.17.1",
+    "mongodb": "^3.6.2",
+    "mongoose": "^5.10.7",
+    "validator": "^13.1.17"
+  }
+}
