@@ -3,6 +3,8 @@
 const mongoose = require('mongoose');
 const User = require('../models/User');
 const Family = require('../models/Family');
+const chalk = require('chalk');
+
 //make a connection
 mongoose
     .connect('mongodb://127.0.0.1:27017/family-spends',{
@@ -11,8 +13,8 @@ mongoose
         useFindAndModify: false,
         useUnifiedTopology: true
 })
-    .then(() => console.log('Successfully connected to MongoDB!'))
-    .catch((err) => console.error('Something went wrong', err));
+    .then(() => console.log(chalk.bold.green('Successfully connected to MongoDB!')))
+    .catch((err) => console.log(chalk.bold.red('Something went wrong', err)));
 
 //To drop an existing collection
 // User.collection.drop();
@@ -41,7 +43,6 @@ const family1 = new Family({
     familyName: 'A',
     familyMembers: ['Ola', 'Adam', 'Kinga'],
 });
-
 
 const saveNew = (entry) => {
     entry.save().then(()=>{

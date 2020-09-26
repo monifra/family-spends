@@ -1,5 +1,6 @@
 //require
 const mongoose = require('mongoose');
+const chalk = require('chalk');
 
 //THIS INITIALIZE DATABASE AND GETS IT UP AND RUNNING
 //To RUN /Users/monikafrankowska/mongodb/bin/mongod --dbpath=/Users/monikafrankowska/mongodb-data
@@ -10,6 +11,7 @@ const mongoose = require('mongoose');
         //now we can test to connection and save it
     //we can test connection by clicking it and choose open shell and write: db.version()
 //Connecting and inserting documents
+//ps aux | grep -v grep | grep mongod
 
 mongoose
     .connect('mongodb://127.0.0.1:27017/family-spends',{
@@ -18,5 +20,7 @@ mongoose
         useFindAndModify: false,
         useUnifiedTopology: true
 })
-    .then(() => console.log('Successfully connected to MongoDB!'))
-    .catch((err) => console.error('Something went wrong', err));
+    .then(() => console.log(chalk.bold.green('Successfully connected to MongoDB!')))
+    .catch((err) => console.log(chalk.bold.red('Something went wrong', err)));
+
+//CATCH NOT WORKING
