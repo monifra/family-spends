@@ -29,7 +29,7 @@ app.get('/api', (req, res) => {
 
 // send 404 if no other route matched
 app.get('*', (req,res)=>{
-    res.status(404).send({message: 'Page Not Found'});
+    res.status(404).send({error: 'Page Not Found'});
 })
 
 
