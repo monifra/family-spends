@@ -1,5 +1,6 @@
 //require
 const express = require('express');
+const cors = require('cors');
 require('./db/mongoose');
 
 const userRouter = require('./routers/user');
@@ -9,6 +10,9 @@ const app = express();
 
 //setting port for Heroku or a normal 3000
 const port = process.env.PORT || 3000;
+
+// Enable all CORS Requests
+app.use(cors());
 
 app.use(express.json());
 
