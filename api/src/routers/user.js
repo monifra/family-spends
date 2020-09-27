@@ -8,7 +8,7 @@ const User = require('../models/User');
 function asyncHandler(callbackF){
     return async(req, res, next) => {
         try {
-            await callbackF(req, res, next)
+            await callbackF(req, res)
         } catch(error){
             res.status(500).send(error);
         }

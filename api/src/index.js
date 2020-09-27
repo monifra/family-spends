@@ -17,14 +17,17 @@ app.use('/api', userRouter);
 app.use('/api', familyRouter);
 
 // setup a greeting for the root route
-app.get('/', (req, res) => {
-    res.json({
+app.get('/api', (req, res) => {
+    res.send({
         message: 'Welcome to the family spends REST API!',
     });
 });
 
 // send 404 if no other route matched
-// setup a global error handler
+app.get('*', (req,res)=>{
+    res.status(404).send({message: 'Page Not Found'});
+})
+
 
 
 app.listen(port, () => {
