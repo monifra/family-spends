@@ -1,6 +1,7 @@
 //require
 const express = require('express');
 const cors = require('cors');
+const chalk = require('chalk');
 require('./db/mongoose');
 
 const userRouter = require('./routers/user');
@@ -20,7 +21,7 @@ app.use(express.json());
 app.use('/api', userRouter);
 app.use('/api', familyRouter);
 
-// setup a greeting for the root route
+// setup a greeting for the API root route
 app.get('/api', (req, res) => {
     res.send({
         message: 'Welcome to the family spends REST API!',
@@ -35,5 +36,5 @@ app.get('*', (req,res)=>{
 
 
 app.listen(port, () => {
-    console.log(`Server is up on port: ${port}`);
+    console.log(chalk.bold.inverse.green(`API server is up on port: ${port}`));
 });
