@@ -7,6 +7,7 @@ const hbs = require('hbs');
 //require functions
 const familySingle = require('./utils/singleFamily')
 const families = require('./utils/families');
+const users = require('./utils/users');
 
 const app = express();
 const port = process.env.PORT || 4000;
@@ -56,7 +57,7 @@ app.get('/families', asyncHandler(async(req,res)=>{
 
     families((err, familiesData)=>{
         if(err){
-            res.send({err});
+            res.send(err);
         }
         if(familiesData){
             const families = JSON.parse(familiesData);
@@ -82,7 +83,15 @@ app.get('/families/:id', asyncHandler(async(req,res)=>{
 }));
 
 
-
+users((err, usersData)=>{
+    if(err){
+        console.log(err);
+    }
+    if(usersData){
+        // const families = JSON.parse(familiesData);
+        console.log(usersData);
+    }
+});
 
 app.listen(port, () => {
     console.log(chalk.bold.inverse.cyan(`Server is up on port: ${port}`));
