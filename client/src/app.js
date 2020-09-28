@@ -1,6 +1,9 @@
 //require packages
 const express = require('express');
+const path = require('path');
 const chalk = require('chalk');
+const hbs = require('hbs');
+
 //require functions
 const familySingle = require('./utils/singleFamily')
 const families = require('./utils/families');
@@ -19,11 +22,24 @@ function asyncHandler(cb){
     }
 }
 
+console.log(__dirname);
+console.log(path.join(__dirname, '../public'));
+
+//set up static directory to serve
+app.use(express.static(path.join(__dirname, '../public')));
+
+//set up handlebars
+app.set('view engine', 'hbs');
+
+//set up templates folder with another name
+app.set('views', path.join(__dirname, '../templates/views'));
+
+//set up partials location
+hbs.registerPartials(path.join(__dirname, '../templates/partials'));
+
 //START page
 app.get('/', asyncHandler(async(req, res)=>{
-    res.send({
-        message: 'Welcome to the family spends frontend!',
-    });
+    res.render('index');
 }));
 
 //USER PROFILE page, add expenses
