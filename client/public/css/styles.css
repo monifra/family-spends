@@ -79,21 +79,24 @@ form {
     margin-top: 25px;
 }
 
-form button, #logout-button {
+form a, #logout-button {
     margin: 25px auto;
-    height: 2.5rem;
+    height: auto;
     width: 125px;
     background-color: #4FB0C6;
     color: white;
     font-weight: 600;
     border: 1px solid #4FB0C6;
     border-radius: 5px;
+    padding:10px 10px;
+    text-align: center;
+    text-decoration: none;
 }
 
-form button:hover, #logout-button:hover {
+form a:hover, #logout-button:hover {
     background-color: white;
     color: #4FB0C6;
-    border-width: 3px;
+    border: 1px solid #4FB0C6;
 }
 
 main {
@@ -162,20 +165,21 @@ td {
     width: 200px;
 }
 
-td button {
+td a {
     height: 75%;
     width: 150px;
     background-color: #475B63;
     color: white;
     border: 1px solid #475B63;
     border-radius: 5px;
+    text-decoration: none;
+    padding: 10px 10px;
 }
 
-td button:hover {
+td a:hover {
     background-color: white;
     color: #475B63;
-    border-color: #475B63;
-    border-width: 3px;
+    border-width: 1px;
 }
 
 #hello-logout {

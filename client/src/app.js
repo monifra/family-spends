@@ -76,8 +76,8 @@ app.get('/families/:id', asyncHandler(async(req,res)=>{
             console.log('Error:', err);
         }
         if(familyData){
-            const family = JSON.parse(familyData)
-            res.send(family);
+            const family = JSON.parse(familyData);
+            res.render('adminPanel');
         }
     });
 }));
