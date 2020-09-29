@@ -12,20 +12,19 @@
             <div id="main-wrapper">
                 <form id="data-changes-form">
                     <h2 id="adding-and-removing">Add savings</h2>
-                    <input type="number">
+                    <input type="number" value="1000">
                     <a>Submit</a>
+                    <a href="/families">Cancel</a>
                 </form>
                 <div id="fixed-data">
-                    <p>Family name: $FamilyName</p>
+                    <p>Family name: {{familyName}}</p>
                     <p>Family members:</p>
                     <ul>
-                        <li>$FamilyMember</li>
-                        <li>$FamilyMember</li>
-                        <li>$FamilyMember</li>
-                        <li>$FamilyMember</li>
-                        <li>$FamilyMember</li>
+                        {{#each familyMembers}}
+                            <li>{{this}}</li>
+                        {{/each}}
                     </ul>
-                    <h3 id="savings-to-change">Savings: $2500</h3>
+                    <h3 id="savings-to-change">Savings: ${{savings}}</h3>
                 </div>
             </div>
         </main>

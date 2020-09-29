@@ -19,6 +19,7 @@ body {
     align-content: center;
     color: #475B63;
     width: 100%;
+    height: auto;
 }
 
 header {
@@ -29,6 +30,7 @@ header {
 
 #index-body {
     margin-top: 15%;
+    height: auto;
 }
 
 #panel-title {
@@ -57,9 +59,18 @@ h3 {
     margin-top: 0;
 }
 
+label {
+    margin-top: 16px;
+    margin-bottom: 16px;
+}
+
 .input-and-title {
     justify-content: flex-end;
     font-weight: 400;
+}
+
+.input-and-title:last-of-type {
+    margin-bottom: 25px;
 }
 
 form input {
@@ -68,10 +79,6 @@ form input {
     margin-left: 10px;
     border: 1px solid #475B63;
     border-radius: 5px;
-}
-
-form input:active {
-    border: 1px solid #4FB0C6;
 }
 
 form {

@@ -46,18 +46,31 @@ app.get('/', asyncHandler(async(req, res)=>{
 }));
 
 //USER PROFILE page, add expenses
-app.get('/user/:id', (req, res)=>{
-    res.send({
-        message: 'Welcome expenses page!',
+app.get('/users/:id', (req, res)=>{
+    const _id = req.params.id;
+    familySingle(_id, (err, familyData)=>{
+        if(err){
+            res.send({'Error:': err});
+        }
+        if(familyData){
+            const family = JSON.parse(familyData);
+            res.render('userPanel', {
+                familyName: family.familyName,
+                familyMembers: family.familyMembers,
+                savings: family.savings
+            });
+        }
     });
 });
+
+
 
 //ADMINISTRATOR PROFILE page, all families
 app.get('/families', asyncHandler(async(req,res)=>{
 
     families((err, familiesData)=>{
         if(err){
-            res.send(err);
+            res.send({'Error':err});
         }
         if(familiesData){
             const families = JSON.parse(familiesData);
@@ -73,11 +86,15 @@ app.get('/families/:id', asyncHandler(async(req,res)=>{
     const _id = req.params.id;
     familySingle(_id, (err, familyData)=>{
         if(err){
-            console.log('Error:', err);
+            res.send({'Error:': err});
         }
         if(familyData){
             const family = JSON.parse(familyData);
-            res.render('adminPanel');
+            res.render('adminPanel', {
+                familyName: family.familyName,
+                familyMembers: family.familyMembers,
+                savings: family.savings
+            });
         }
     });
 }));
