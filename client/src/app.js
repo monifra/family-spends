@@ -38,10 +38,20 @@ app.set('views', path.join(__dirname, '../templates/views'));
 //set up partials location
 hbs.registerPartials(path.join(__dirname, '../templates/partials'));
 
+users((err, usersData)=>{
+    if(err){
+        return console.log(err);
+    }
+    if(usersData){
+        return console.log(usersData);
+    }
+});
+
 //START page
 app.get('/', asyncHandler(async(req, res)=>{
+
     res.render('index',{
-        title: 'Family Spends'
+        title: 'Family Finances'
     });
 }));
 
@@ -98,17 +108,6 @@ app.get('/families/:id', asyncHandler(async(req,res)=>{
         }
     });
 }));
-
-
-users((err, usersData)=>{
-    if(err){
-        console.log(err);
-    }
-    if(usersData){
-        // const families = JSON.parse(familiesData);
-        console.log(usersData);
-    }
-});
 
 app.get('/families/*', (req,res)=>{
     //render error page!! 404 for family not found

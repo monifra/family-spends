@@ -1,7 +1,7 @@
 const request = require('postman-request');
 
-const users = (cb)=> {
-    //url to families list in api
+const users = (cb) => {
+    //url to users list in api
     const url = 'http://localhost:3000/api/users';
     request({url: url}, (err,res)=>{
         if(err){
