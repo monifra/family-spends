@@ -13,32 +13,18 @@
                 <thead>
                     <tr>
                         <th>Family Name</th>
-                        <th>Family budget</th>
-                        <th>Edit Family</th>
+                        <th>Family Budget</th>
+                        <th>Edit Budget</th>
                     </tr>
                 </thead>
-                    <tr>
-                        <td>{{familyName}}</td>
-                        <td>$familyBudget</td>
-                        <td class="button-td"><button>Edit Family</button></td>
-                    </tr>
-                    <tr>
-                        <td>$familyName</td>
-                        <td>$familyBudget</td>
-                        <td class="button-td"><button>Edit Family</button></td>
-                    </tr>
-                    <tr>
-                        <td>$familyName</td>
-                        <td>$familyBudget</td>
-                        <td class="button-td"><button>Edit Family</button></td>
-                    </tr>
-                    <tr>
-                        <td>$familyName</td>
-                        <td>$familyBudget</td>
-                        <td class="button-td"><button>Edit Family</button></td>
-                    </tr>
                 <tbody>
-
+                    {{#each families}}
+                        <tr>
+                            <td>{{familyName}}</td>
+                            <td>{{savings}}</td>
+                            <td class="button-td"><button>Edit Budget</button></td>
+                        </tr>
+                    {{/each}}
                 </tbody>
             </table>
         </main>
