@@ -1,51 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Family Finances - Database</title>
-    <link rel="stylesheet" href="/css/normalize.css">
-    <link rel="stylesheet" href="/css/styles.css">
-</head>
-<body>
-    <header>
-        <div id="panel-title">
-            <h1>Family Finances App</h1>
-            <button id="logout-button">Logout</button>
-        </div>
-    </header>
-    <main>
-        <table>
-            <thead>
-                <tr>
-                    <th>Family Name</th>
-                    <th>Family budget</th>
-                    <th>Edit Family</th>
-                </tr>
-            </thead>
-                <tr>
-                    <td>$familyName</td>
-                    <td>$familyBudget</td>
-                    <td class="button-td"><button>Edit Family</button></td>
-                </tr>
-                <tr>
-                    <td>$familyName</td>
-                    <td>$familyBudget</td>
-                    <td class="button-td"><button>Edit Family</button></td>
-                </tr>
-                <tr>
-                    <td>$familyName</td>
-                    <td>$familyBudget</td>
-                    <td class="button-td"><button>Edit Family</button></td>
-                </tr>
-                <tr>
-                    <td>$familyName</td>
-                    <td>$familyBudget</td>
-                    <td class="button-td"><button>Edit Family</button></td>
-                </tr>
-            <tbody>
+    <head>
+        <meta charset="UTF-8">
+        <title>Family Finances - Database</title>
+        <link rel="stylesheet" href="/css/normalize.css">
+        <link rel="stylesheet" href="/css/styles.css">
+    </head>
+    <body>
+        {{>header}}
+        <main>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Family Name</th>
+                        <th>Family budget</th>
+                        <th>Edit Family</th>
+                    </tr>
+                </thead>
+                    <tr>
+                        <td>{{familyName}}</td>
+                        <td>$familyBudget</td>
+                        <td class="button-td"><button>Edit Family</button></td>
+                    </tr>
+                    <tr>
+                        <td>$familyName</td>
+                        <td>$familyBudget</td>
+                        <td class="button-td"><button>Edit Family</button></td>
+                    </tr>
+                    <tr>
+                        <td>$familyName</td>
+                        <td>$familyBudget</td>
+                        <td class="button-td"><button>Edit Family</button></td>
+                    </tr>
+                    <tr>
+                        <td>$familyName</td>
+                        <td>$familyBudget</td>
+                        <td class="button-td"><button>Edit Family</button></td>
+                    </tr>
+                <tbody>
 
-            </tbody>
-        </table>
-    </main>
-</body>
+                </tbody>
+            </table>
+        </main>
+    </body>
 </html>

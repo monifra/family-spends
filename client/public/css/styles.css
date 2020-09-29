@@ -163,7 +163,7 @@ td {
 }
 
 td button {
-    height: 50%;
+    height: 75%;
     width: 150px;
     background-color: #475B63;
     color: white;
@@ -172,7 +172,18 @@ td button {
 }
 
 td button:hover {
-    background-color: #E0EDC5;
+    background-color: white;
     color: #475B63;
-    border-color: #E0EDC5;
+    border-color: #475B63;
+    border-width: 3px;
+}
+
+#hello-logout {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+#hello-logout h3 {
+    margin: auto auto;
 }

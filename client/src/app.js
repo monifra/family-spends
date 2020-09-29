@@ -61,7 +61,7 @@ app.get('/families', asyncHandler(async(req,res)=>{
         }
         if(familiesData){
             const families = JSON.parse(familiesData);
-            res.send(families);
+            res.render('familiesTable', {familyName : families[0].familyMembers});
         }
     });
 
