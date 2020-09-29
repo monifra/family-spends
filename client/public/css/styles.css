@@ -1,0 +1,178 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600&display=swap');
+
+* {
+    font-family: 'Montserrat', sans-serif;
+    box-sizing: border-box;
+}
+
+.input-and-title, #main-wrapper {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    color: #475B63;
+    width: 100%;
+}
+
+header {
+    width: 100%;
+    padding: 0 100px;
+    border-bottom: 1px solid #475B63;
+}
+
+#index-body {
+    margin-top: 15%;
+}
+
+#panel-title {
+    margin: 0;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-between;
+}
+
+h1{
+    color: #4FB0C6;
+    font-weight: 400;
+    font-size: 3.2rem;
+    margin-bottom: 0;
+    margin-top: 10px;
+}
+
+h2 {
+    font-weight: 200;
+    font-size: 1.5rem;
+    margin-top: 5px;
+}
+
+h3 {
+    margin-top: 0;
+}
+
+.input-and-title {
+    justify-content: flex-end;
+    font-weight: 400;
+}
+
+form input {
+    height: 1.7rem;
+    width: 250px;
+    margin-left: 10px;
+    border: 1px solid #475B63;
+    border-radius: 5px;
+}
+
+form input:active {
+    border: 1px solid #4FB0C6;
+}
+
+form {
+    text-align: center;
+    margin-top: 25px;
+}
+
+form button, #logout-button {
+    margin: 25px auto;
+    height: 2.5rem;
+    width: 125px;
+    background-color: #4FB0C6;
+    color: white;
+    font-weight: 600;
+    border: 1px solid #4FB0C6;
+    border-radius: 5px;
+}
+
+form button:hover, #logout-button:hover {
+    background-color: white;
+    color: #4FB0C6;
+    border-width: 3px;
+}
+
+main {
+    width: 100%;
+    margin-top: 150px;
+}
+
+#main-wrapper {
+    justify-content: space-around;
+    width: 60%;
+    margin: auto auto;
+    max-height: 400px;
+    padding: 50px 25px;
+}
+
+#data-changes-form {
+    display: flex;
+    flex-direction: column;
+    margin-top:0;
+    align-items: center;
+    height: 100%;
+}
+
+#adding-and-removing {
+    font-weight: 500;
+}
+
+#data-changes-form button {
+    margin-bottom: 0;
+}
+
+#savings-to-change {
+    border: 3px solid #4FB0C6;
+    padding: 5px 5px;
+    border-radius: 5px;
+}
+
+#logout-button {
+    margin: 25px 25px;
+}
+
+table {
+    width: 60%;
+    text-align: center;
+    margin: auto;
+    background-color: #4FB0C6;
+    padding:1px;
+    border-radius: 5px;
+}
+
+th {
+    border: solid 1px #4FB0C6;
+    background-color: #4FB0C6;
+    height: 50px;
+    border-radius: 5px 5px 0 0;
+    color: #EAF4F4;
+}
+
+td {
+    border: solid 1px #EAF4F4;
+    height: 75px;
+    background-color: white;
+}
+
+.button-td {
+    width: 200px;
+}
+
+td button {
+    height: 50%;
+    width: 150px;
+    background-color: #475B63;
+    color: white;
+    border: 1px solid #475B63;
+    border-radius: 5px;
+}
+
+td button:hover {
+    background-color: #E0EDC5;
+    color: #475B63;
+    border-color: #E0EDC5;
+}

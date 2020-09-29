@@ -93,6 +93,14 @@ users((err, usersData)=>{
     }
 });
 
+app.get('/families/*', (req,res)=>{
+    //render error page!! 404 for family not found
+});
+
+app.get('*', (req,res)=>{
+    //render error page!! 404 Page not found
+});
+
 app.listen(port, () => {
     console.log(chalk.bold.inverse.cyan(`Server is up on port: ${port}`));
 });
