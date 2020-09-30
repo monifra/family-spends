@@ -3,9 +3,6 @@ const express = require('express');
 const path = require('path');
 const chalk = require('chalk');
 const hbs = require('hbs');
-const request = require('postman-request');
-const querystring =  require('querystring');
-const bodyParser = require('body-parser');
 
 //require functions
 const familySingle = require('./utils/singleFamily')
@@ -43,7 +40,7 @@ app.set('views', path.join(__dirname, '../templates/views'));
 hbs.registerPartials(path.join(__dirname, '../templates/partials'));
 
 //START page
-app.get('/welcome', asyncHandler(async(req, res)=>{
+app.get('/', asyncHandler(async(req, res)=>{
 
     users((err, usersData)=>{
         if(err){
@@ -75,7 +72,8 @@ app.get('/users/:id', (req, res)=>{
             res.render('userPanel', {
                 familyName: family.familyName,
                 familyMembers: family.familyMembers,
-                savings: family.savings
+                savings: family.savings,
+                familyId: _id
             });
         }
     });

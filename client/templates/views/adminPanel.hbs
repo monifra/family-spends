@@ -10,12 +10,12 @@
         {{>header}}
         <main>
             <div id="main-wrapper">
-<!--                <form id="data-changes-form" method="post" action="http://localhost:3000/api/families/{{familyId}}">-->
+<!--                <form id="data-changes-form" >-->
                     <h2 id="adding-and-removing">Add savings</h2>
-                    <input type="number" value="1000" id="savings">
-                    <a>Submit</a>
-                    <button id="submitButton">Submit</button>
-<!--                    <a href="/families">Cancel</a>-->
+                    <input type="number" value="1000" id="money">
+<!--                    <a>Submit</a>-->
+                    <button id="submitBudgetButton" onClick="window.location.reload()">Submit</button>
+                    <a href="/families">Cancel</a>
 <!--                </form>-->
                 <div id="fixed-data">
                     <p>Family name: {{familyName}}</p>

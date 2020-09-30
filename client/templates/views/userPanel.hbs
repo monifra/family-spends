@@ -10,12 +10,13 @@
         {{>header}}
         <main>
             <div id="main-wrapper">
-                <form id="data-changes-form">
+<!--                <form id="data-changes-form">-->
                     <h2 id="adding-and-removing">Add Expense</h2>
-                    <input type="number" value="100">
-                    <a>Submit</a>
+                    <input type="number" value="100" id="money">
+<!--                    <a>Submit</a>-->
+                    <button id="submitExpensesButton" onClick="window.location.reload()">Submit</button>
                     <a href="/">Cancel</a>
-                </form>
+<!--                </form>-->
                 <div id="fixed-data">
                     <p>Family name: {{familyName}}</p>
                     <p>Family members:</p>
@@ -24,9 +25,11 @@
                             <li>{{this}}</li>
                         {{/each}}
                     </ul>
-                    <h3 id="savings-to-change">Savings: ${{savings}}</h3>
+                    <h3 id="savings-to-change">Savings: $<span id="savingsNow">{{savings}}</span></h3>
+                    <p id="familyId">{{familyId}}</p>
                 </div>
             </div>
         </main>
+        <script src="/js/app.js"></script>
     </body>
 </html>
