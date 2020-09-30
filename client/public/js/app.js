@@ -1,15 +1,18 @@
 //PUBLIC JAVASCRIPT
 
-//ADMIN PANEL ADD BUDGET variables
+//ADMIN PANEL AND USER PANEL variables
 
 const input = document.getElementById('money');
 const id = document.getElementById('familyId').textContent;
 document.getElementById('familyId').style.visibility = 'hidden';
 let earlierSavings = parseInt(document.getElementById('savingsNow').textContent);
+
+//ADMIN PANEL ADD BUDGET variables
 const addSavingsButton = document.getElementById('submitBudgetButton');
 
 //USER PANEL ADD EXPENSES variables
-console.log(id);
+const addExpensesButton = document.getElementById('submitExpensesButton');
+
 //ADMIN PANEL ADD BUDGET event listener
 
 if(addSavingsButton){
@@ -33,7 +36,9 @@ if(addSavingsButton){
     });
 }
 //USER PANEL ADD EXPENSES event listener
+if(addExpensesButton){
 
+}
 
 
 
