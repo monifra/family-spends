@@ -3,6 +3,9 @@ const express = require('express');
 const path = require('path');
 const chalk = require('chalk');
 const hbs = require('hbs');
+const request = require('postman-request');
+const querystring =  require('querystring');
+const bodyParser = require('body-parser');
 
 //require functions
 const familySingle = require('./utils/singleFamily')
@@ -26,6 +29,7 @@ function asyncHandler(cb){
 console.log(__dirname);
 console.log(path.join(__dirname, '../public'));
 
+
 //set up static directory to serve
 app.use(express.static(path.join(__dirname, '../public')));
 
@@ -38,21 +42,25 @@ app.set('views', path.join(__dirname, '../templates/views'));
 //set up partials location
 hbs.registerPartials(path.join(__dirname, '../templates/partials'));
 
-users((err, usersData)=>{
-    if(err){
-        return console.log(err);
-    }
-    if(usersData){
-        return console.log(usersData);
-    }
-});
-
 //START page
-app.get('/', asyncHandler(async(req, res)=>{
+app.get('/welcome', asyncHandler(async(req, res)=>{
 
-    res.render('index',{
-        title: 'Family Finances'
+    users((err, usersData)=>{
+        if(err){
+            return console.log(err);
+        }
+        if(usersData){
+            console.log(usersData);
+
+
+
+            res.render('index',{
+                title: 'Family Finances'
+            });
+        }
     });
+
+
 }));
 
 //USER PROFILE page, add expenses
@@ -91,7 +99,7 @@ app.get('/families', asyncHandler(async(req,res)=>{
 
 }));
 
-//ADMINISTRATOR PROFILE page, single family
+//ADMINISTRATOR PROFILE GET page, single family
 app.get('/families/:id', asyncHandler(async(req,res)=>{
     const _id = req.params.id;
     familySingle(_id, (err, familyData)=>{
@@ -99,15 +107,34 @@ app.get('/families/:id', asyncHandler(async(req,res)=>{
             res.send({'Error:': err});
         }
         if(familyData){
+
             const family = JSON.parse(familyData);
             res.render('adminPanel', {
                 familyName: family.familyName,
                 familyMembers: family.familyMembers,
-                savings: family.savings
+                savings: family.savings,
+                familyId: _id
             });
         }
     });
 }));
+
+// //PART FOR UPDATING DATA!!!!
+// app.use(bodyParser.urlencoded({ extended: false }));
+//
+// app.get('/', (req,res)=>{
+//     res.sendFile(path.join(__dirname, '../templates/views/adminPanel.hbs'));
+// });
+//
+// //ADMINISTRATOR PROFILE UPDATE family page after submit a button
+// app.post('/families/:id', asyncHandler(async(req,res)=>{
+//     const _id = req.params.id;
+//     const url = 'http://localhost:3000/api/families/:id';
+//     const postBody = req.body;
+//     console.log(postBody + 'this is me');
+//     // const options = ;
+//     // request.post(url,);
+// }));
 
 app.get('/families/*', (req,res)=>{
     //render error page!! 404 for family not found
