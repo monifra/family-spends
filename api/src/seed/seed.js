@@ -70,3 +70,5 @@ saveNew(userOla);
 saveNew(userAdam);
 saveNew(userKinga);
 saveNew(family1);
+saveNew(userKarol);
+saveNew(family2);
