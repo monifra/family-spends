@@ -56,15 +56,6 @@ app.get('/', asyncHandler(async(req, res)=>{
             });
         }
     });
-    // families((err, familiesData)=>{
-    //     if(familiesData){
-    //         const families = JSON.parse(familiesData);
-    //         res.render('familiesTable', {
-    //             families : families,
-    //             name: 'Admin'
-    //         });
-    //     }
-    // });
 }));
 
 //USER PROFILE page, add expenses
