@@ -10,13 +10,15 @@
         {{>header}}
         <main>
             <div id="main-wrapper">
-<!--                <form id="data-changes-form">-->
+                <div id="data-changes-form">
+<!--            <form id="data-changes-form">-->
                     <h2 id="adding-and-removing">Add Expense</h2>
                     <input type="number" value="100" id="money">
-<!--                    <a>Submit</a>-->
+                    <p id="error"></p>
                     <button id="submitExpensesButton" onClick="window.location.reload()">Submit</button>
-                    <a href="/">Cancel</a>
-<!--                </form>-->
+                    <a class="cancel-button" href="/">Cancel</a>
+<!--            </form>-->
+                </div>
                 <div id="fixed-data">
                     <p>Family name: {{familyName}}</p>
                     <p>Family members:</p>

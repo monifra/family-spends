@@ -49,8 +49,6 @@ app.get('/', asyncHandler(async(req, res)=>{
         if(usersData){
             console.log(usersData);
 
-
-
             res.render('index',{
                 title: 'Family Finances'
             });
@@ -105,7 +103,6 @@ app.get('/families/:id', asyncHandler(async(req,res)=>{
             res.send({'Error:': err});
         }
         if(familyData){
-
             const family = JSON.parse(familyData);
             res.render('adminPanel', {
                 familyName: family.familyName,
@@ -116,23 +113,6 @@ app.get('/families/:id', asyncHandler(async(req,res)=>{
         }
     });
 }));
-
-// //PART FOR UPDATING DATA!!!!
-// app.use(bodyParser.urlencoded({ extended: false }));
-//
-// app.get('/', (req,res)=>{
-//     res.sendFile(path.join(__dirname, '../templates/views/adminPanel.hbs'));
-// });
-//
-// //ADMINISTRATOR PROFILE UPDATE family page after submit a button
-// app.post('/families/:id', asyncHandler(async(req,res)=>{
-//     const _id = req.params.id;
-//     const url = 'http://localhost:3000/api/families/:id';
-//     const postBody = req.body;
-//     console.log(postBody + 'this is me');
-//     // const options = ;
-//     // request.post(url,);
-// }));
 
 app.get('/families/*', (req,res)=>{
     //render error page!! 404 for family not found

@@ -13,10 +13,14 @@ const addSavingsButton = document.getElementById('submitBudgetButton');
 //USER PANEL ADD EXPENSES variables
 const addExpensesButton = document.getElementById('submitExpensesButton');
 
+//ERROR HANDLING INFORMATION
+const errorP = document.getElementById('error');
+
 //ADMIN PANEL ADD BUDGET event listener
 
 if(addSavingsButton){
     addSavingsButton.addEventListener('click', (e)=>{
+
     //value in the input field - how many we would like to add
         const addBudget = parseInt(input.value);
     //add input value to a savings balance
@@ -31,8 +35,18 @@ if(addSavingsButton){
                 'Content-Type': 'application/json'
             }
         }
-    // fetch new savings balance to the api patch endpoint
-        fetch('http://localhost:3000/api/families/' + id, options);
+
+        if(input.value <  0){
+            // addSavingsButton.removeAttribute('onClick');
+            e.preventDefault();
+            errorP.textContent = 'Value cannot be negative';
+
+        }else{
+            //onClick="window.location.reload()"
+            // addSavingsButton.setAttribute('onClick','window.location.reload()');
+         // fetch new savings balance to the api patch endpoint
+            fetch('http://localhost:3000/api/families/' + id, options);
+        }
     });
 }
 //USER PANEL ADD EXPENSES event listener
