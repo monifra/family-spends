@@ -21,6 +21,11 @@ app.use(express.json());
 app.use('/api', userRouter);
 app.use('/api', familyRouter);
 
+//redirect from '/' to '/api'
+app.get('/',(req,res)=>{
+    res.redirect('/api')
+});
+
 // setup a greeting for the API root route
 app.get('/api', (req, res) => {
     res.send({
