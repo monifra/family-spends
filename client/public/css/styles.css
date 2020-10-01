@@ -5,21 +5,33 @@
     box-sizing: border-box;
 }
 
-.input-and-title, #main-wrapper {
+.input-and-title, #main-wrapper, #hello-logout, #panel-title {
     display: flex;
     flex-direction: row;
+}
+
+#data-changes-form, body {
+    display: flex;
+    flex-direction: column;
+}
+
+body, .input-and-title, #main-wrapper, #data-changes-form, #hello-logout h3 {
     align-items: center;
 }
 
+body, #index-body, #data-changes-form a, form a, #logout-button, #data-changes-form button {
+    height: auto;
+}
+
+#data-changes-form input, #data-changes-form a, form a, #logout-button, #data-changes-form button, #savings-to-change, table, td a {
+    border-radius: 5px;
+}
+
 body {
-    display: flex;
-    flex-direction: column;
     justify-content: center;
-    align-items: center;
     align-content: center;
     color: #475B63;
     width: 100%;
-    height: auto;
 }
 
 header {
@@ -30,13 +42,10 @@ header {
 
 #index-body {
     margin-top: 15%;
-    height: auto;
 }
 
 #panel-title {
     margin: 0;
-    display: flex;
-    flex-direction: row;
     width: 100%;
     justify-content: space-between;
 }
@@ -78,7 +87,6 @@ label {
     width: 250px;
     margin-left: 10px;
     border: 1px solid #475B63;
-    border-radius: 5px;
 }
 
 #data-changes-form, form {
@@ -88,13 +96,8 @@ label {
 
 #data-changes-form a, form a, #logout-button{
     margin: 25px 15px;
-    height: auto;
     width: 125px;
-    background-color: #4FB0C6;
-    color: white;
     font-weight: 600;
-    border: 1px solid #4FB0C6;
-    border-radius: 5px;
     padding:10px 10px;
     text-align: center;
     text-decoration: none;
@@ -112,13 +115,8 @@ label {
 
 #data-changes-form button {
     margin: 25px auto;
-    height: auto;
     width: 125px;
-    background-color: #4FB0C6;
-    color: white;
     font-weight: 600;
-    border: 1px solid #4FB0C6;
-    border-radius: 5px;
     padding:10px 10px;
 }
 
@@ -142,15 +140,12 @@ main {
 }
 
 #data-changes-form {
-    display: flex;
-    flex-direction: column;
     margin-top:0;
-    align-items: center;
     height: 100%;
 }
 
 #adding-and-removing {
-    font-weight: 500;
+    font-weight: 600;
 }
 
 #data-changes-form button {
@@ -160,7 +155,6 @@ main {
 #savings-to-change {
     border: 3px solid #4FB0C6;
     padding: 5px 5px;
-    border-radius: 5px;
 }
 
 #logout-button {
@@ -173,15 +167,17 @@ table {
     margin: auto;
     background-color: #4FB0C6;
     padding:1px;
-    border-radius: 5px;
+}
+
+th, #data-changes-form button, #data-changes-form a, form a, #logout-button  {
+    border: solid 1px #4FB0C6;
+    background-color: #4FB0C6;
+    color: white;
 }
 
 th {
-    border: solid 1px #4FB0C6;
-    background-color: #4FB0C6;
     height: 50px;
     border-radius: 5px 5px 0 0;
-    color: #EAF4F4;
 }
 
 td {
@@ -200,7 +196,6 @@ td a {
     background-color: #475B63;
     color: white;
     border: 1px solid #475B63;
-    border-radius: 5px;
     text-decoration: none;
     padding: 10px 10px;
 }
@@ -209,12 +204,6 @@ td a:hover {
     background-color: white;
     color: #475B63;
     border-width: 1px;
-}
-
-#hello-logout {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
 }
 
 #hello-logout h3 {
