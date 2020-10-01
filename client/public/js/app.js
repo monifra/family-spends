@@ -56,6 +56,8 @@ if(addExpensesButton){
     //data to send by fetch option
         const data = {savings};
     //options for fetch
+    //Fetch written with the help of:
+    //https://github.com/CodingTrain/Intro-to-Data-APIs-JS/blob/source/module2/data_selfie_app/public/sketch.js
         const options = {
             method: 'PATCH',
             body: JSON.stringify(data),
