@@ -37,7 +37,24 @@ if(addSavingsButton){
 }
 //USER PANEL ADD EXPENSES event listener
 if(addExpensesButton){
-
+    addExpensesButton.addEventListener('click', (e)=>{
+    //value in the input field - how many we would like to take from budget
+        const addExpenses =parseInt(input.value);
+    //subtract input value from savings balance
+        const savings = earlierSavings -= addExpenses;
+    //data to send by fetch option
+        const data = {savings};
+    //options for fetch
+        const options = {
+            method: 'PATCH',
+            body: JSON.stringify(data),
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        }
+    // fetch new savings balance to the api patch endpoint
+        fetch('http://localhost:3000/api/families/' + id, options);
+    });
 }
 
 
