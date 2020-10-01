@@ -36,5 +36,48 @@ Client app is build with [Node.js](https://nodejs.org/en/), [Express](http://exp
 * When you try to access non existing route or non existing family you will get 404 error page.
 
 ## Getting started with API
+To get up and running with this project, run the following commands from the root of the api folder.<br>
+First, install the project's dependencies using `npm`.
+
+```
+npm install
+
+```
+
+Now you need to run MongoDB in separate terminal window. You do it from your home directory, you can navigate there with cd ~.  
+The path will change depending on where you have installed your MongoDB. MongoDB will start on <b>port 27017</b>.
+
+```
+/your/path/mongodb/bin/mongod --dbpath=/your/path/mongodb-data
+```
+
+Now you need to open your MongoDB GUI I'm using [Robo 3T](https://studio3t.com). <br>
+In GUI open connections panel. Create new connection give it a name, set address to localhost and port to 27017, test the connection in GUI and save.<br>
+Keep the connection with database running.
+
+In separate terminal window navigate to the root of the api folder.<br><br>
+Seed the MongoDB database.
+
+```
+npm run seed
+```
+
+Lastly, start the application.
+
+```
+npm run start
+```
+
+### Testing API
+To test the Express server, browse to the URL [http://localhost:3000/](http://localhost:3000/). <br>
+
+To test and explore application use [Postman](https://www.postman.com) a popular application for testing REST APIs.
 
 ## Getting started with client
+
+Install dependencies by running from the client root folder:
+
+```
+npm install
+
+```

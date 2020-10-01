@@ -4,6 +4,8 @@ const chalk = require('chalk');
 
 //THIS INITIALIZE DATABASE AND GETS IT UP AND RUNNING
 //To RUN /Users/monikafrankowska/mongodb/bin/mongod --dbpath=/Users/monikafrankowska/mongodb-data
+//To RUN /Users/monika/mongodb/bin/mongod --dbpath=/Users/monika/mongodb-data
+//To RUN /your/path/mongodb/bin/mongod --dbpath=/your/path/mongodb-data
 //waiting on connections on port 27017
 //Open MongoDB GUI in my case Robo3T
     //opens mongoDB connections panel
