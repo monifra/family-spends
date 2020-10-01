@@ -17,7 +17,7 @@ const familySchema = new Schema({
     },
     savings: {
         type: Number,
-        default: 0,
+        default: 1000,
         validate(value){
             if(value < 0){
                 throw new Error('Savings must be a positive number');

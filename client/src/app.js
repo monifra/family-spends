@@ -42,17 +42,29 @@ hbs.registerPartials(path.join(__dirname, '../templates/partials'));
 //START page
 app.get('/', asyncHandler(async(req, res)=>{
     //HERE WILL GO LOGIN SETUP NOW ITS STARTING DEMO PANEL
-    users((err, usersData)=>{
+    families((err, familiesData)=>{
         if(err){
-            return console.log(err);
+            res.send({'Error':err});
         }
-        if(usersData){
-            // console.log(usersData);
+        if(familiesData){
+            const families = JSON.parse(familiesData);
+            const firstFamily = families[0];
+            const firstFamilyId = Object.values(firstFamily)[2];
             res.render('index',{
-                title: 'Family Finances'
+                title: 'Family Finances',
+                familyId: firstFamilyId
             });
         }
     });
+    // families((err, familiesData)=>{
+    //     if(familiesData){
+    //         const families = JSON.parse(familiesData);
+    //         res.render('familiesTable', {
+    //             families : families,
+    //             name: 'Admin'
+    //         });
+    //     }
+    // });
 }));
 
 //USER PROFILE page, add expenses

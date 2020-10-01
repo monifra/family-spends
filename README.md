@@ -43,13 +43,25 @@ First, install the project's dependencies using `npm`.
 npm install
 
 ```
-
+#### Mac Configuration 
 Now you need to run MongoDB in separate terminal window. You do it from your home directory, you can navigate there with cd ~.  
+The path will change depending on where you have installed your MongoDB and how you've named your folders.
+I've installed mine in monika root directory, called folder for mongoDB - mongodb and folder for databases-mongodb-data. 
+MongoDB will start on <b>port 27017</b>.
+
+```
+/your/path/mongodb/bin/yourMongoDBFolder --dbpath=/your/path/yourDatabaseFolder
+```
+On my computer:
+```
+ex.: /Users/monika/mongodb/bin/mongod --dbpath=/Users/monika/mongodb-data
+```
+#### Windows Configuration 
+Now you need to run MongoDB in separate terminal window. You do it from your bin directory. 
+/Users/YourUserName/mongodb/  
+
 The path will change depending on where you have installed your MongoDB. MongoDB will start on <b>port 27017</b>.
 
-```
-/your/path/mongodb/bin/mongod --dbpath=/your/path/mongodb-data
-```
 
 Now you need to open your MongoDB GUI I'm using [Robo 3T](https://studio3t.com). <br>
 In GUI open connections panel. Create new connection give it a name, set address to localhost and port to 27017, test the connection in GUI and save.<br>
@@ -61,7 +73,7 @@ Seed the MongoDB database.
 ```
 npm run seed
 ```
-
+After seeding finish connection in the terminal.
 Lastly, start the application.
 
 ```
@@ -69,9 +81,11 @@ npm run start
 ```
 
 ### Testing API
-To test the Express server, browse to the URL [http://localhost:3000/](http://localhost:3000/). <br>
+To test the Express server, browse to the URL [http://localhost:3000/api](http://localhost:3000/api). <br>
 
 To test and explore application use [Postman](https://www.postman.com) a popular application for testing REST APIs.
+
+I've added postman collection JSON file for testing the API. When you want to test route that includes ID be sure to update it with your own ID's from GET families or GET users routes. 
 
 ## Getting started with client
 
@@ -81,3 +95,16 @@ Install dependencies by running from the client root folder:
 npm install
 
 ```
+Start the application.
+
+```
+npm run start
+```
+
+### Testing Client
+
+Client will be up and running on [http://localhost:4000](http://localhost:4000). <br>
+
+
+
+

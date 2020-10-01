@@ -42,6 +42,20 @@ const userKinga = new User({
 const family1 = new Family({
     familyName: 'A',
     familyMembers: ['Ola', 'Adam', 'Kinga'],
+    savings: 1300
+});
+
+const userKarol = new User({
+    name: 'Karol',
+    familyName: 'B',
+    email: 'karol@b.com',
+    password: 'Korale.2000',
+});
+
+const family2 = new Family({
+    familyName: 'B',
+    familyMembers: ['Karol'],
+    savings: 1500
 });
 
 const saveNew = (entry) => {
