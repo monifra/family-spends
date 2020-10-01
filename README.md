@@ -43,7 +43,7 @@ First, install the project's dependencies using `npm`.
 npm install
 
 ```
-#### Mac Configuration 
+#### Mac MongoDB Configuration 
 Now you need to run MongoDB in separate terminal window. You do it from your home directory, you can navigate there with cd ~.  
 The path will change depending on where you have installed your MongoDB and how you've named your folders.
 I've installed mine in monika root directory, called folder for mongoDB - mongodb and folder for databases-mongodb-data. 
@@ -56,16 +56,26 @@ On my computer:
 ```
 ex.: /Users/monika/mongodb/bin/mongod --dbpath=/Users/monika/mongodb-data
 ```
-#### Windows Configuration 
-Now you need to run MongoDB in separate terminal window. You do it from your bin directory. 
-/Users/YourUserName/mongodb/  
+#### or Windows MongoDB Configuration 
+Now you need to run MongoDB in separate terminal window. 
+The path will change depending on how have you named your folders. MongoDB will start on <b>port 27017</b>.
+```
+/Users/YourUserName/yourMongoDBFolder/bin/mongod.exe --dbpath/Users/YourUserName/yourDatabaseFolder  
+```
+Example:
+```
+ex.: /Users/Monika/mongodb/bin/mongod.exe --dbpath/Users/Monika/mongodb-data  
+```
 
-The path will change depending on where you have installed your MongoDB. MongoDB will start on <b>port 27017</b>.
+The path will change depending on how have you named your folders. MongoDB will start on <b>port 27017</b>.
 
+#### GUI
 
 Now you need to open your MongoDB GUI I'm using [Robo 3T](https://studio3t.com). <br>
 In GUI open connections panel. Create new connection give it a name, set address to localhost and port to 27017, test the connection in GUI and save.<br>
 Keep the connection with database running.
+
+#### SEED
 
 In separate terminal window navigate to the root of the api folder.<br><br>
 Seed the MongoDB database.
@@ -73,6 +83,9 @@ Seed the MongoDB database.
 ```
 npm run seed
 ```
+
+#### Starting Application
+
 After seeding finish connection in the terminal.
 Lastly, start the application.
 
