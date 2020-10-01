@@ -45,7 +45,6 @@ router.post('/families', asyncHandler(async(req,res)=>{
 router.patch('/families/:id', asyncHandler(async(req,res)=>{
     const _id = req.params.id;
     const body = req.body;
-
     //verify existence in a model
     const updates = Object.keys(body);
     const allowUpdates = ['familyName', 'familyMembers', 'savings'];
@@ -61,6 +60,7 @@ router.patch('/families/:id', asyncHandler(async(req,res)=>{
     } else {
         res.status(200).send(family);
     }
+
 
 }));
 
