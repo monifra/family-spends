@@ -41,21 +41,18 @@ hbs.registerPartials(path.join(__dirname, '../templates/partials'));
 
 //START page
 app.get('/', asyncHandler(async(req, res)=>{
-
+    //HERE WILL GO LOGIN SETUP NOW ITS STARTING DEMO PANEL
     users((err, usersData)=>{
         if(err){
             return console.log(err);
         }
         if(usersData){
-            console.log(usersData);
-
+            // console.log(usersData);
             res.render('index',{
                 title: 'Family Finances'
             });
         }
     });
-
-
 }));
 
 //USER PROFILE page, add expenses
@@ -63,15 +60,25 @@ app.get('/users/:id', (req, res)=>{
     const _id = req.params.id;
     familySingle(_id, (err, familyData)=>{
         if(err){
-            res.send({'Error:': err});
-        }
-        if(familyData){
+            res.render('error', {
+                error: err,
+                status: 404,
+                backPath: '/'
+            });
+        } else if(_id.length < 24 || _id.length > 24){
+            res.render('error', {
+                error: 'Family Page Not Found',
+                status: 404,
+                backPath: '/'
+            });
+        } else if(familyData){
             const family = JSON.parse(familyData);
             res.render('userPanel', {
                 familyName: family.familyName,
                 familyMembers: family.familyMembers,
                 savings: family.savings,
-                familyId: _id
+                familyId: _id,
+                name: 'User'
             });
         }
     });
@@ -88,7 +95,10 @@ app.get('/families', asyncHandler(async(req,res)=>{
         }
         if(familiesData){
             const families = JSON.parse(familiesData);
-            res.render('familiesTable', {families : families});
+            res.render('familiesTable', {
+                families : families,
+                name: 'Admin'
+            });
         }
     });
 
@@ -96,30 +106,42 @@ app.get('/families', asyncHandler(async(req,res)=>{
 }));
 
 //ADMINISTRATOR PROFILE GET page, single family
-app.get('/families/:id', asyncHandler(async(req,res)=>{
+app.get('/families/:id', asyncHandler(async(req,res,next)=>{
     const _id = req.params.id;
     familySingle(_id, (err, familyData)=>{
         if(err){
-            res.send({'Error:': err});
+            res.render('error', {
+                error: err,
+                status: 404,
+                backPath: '/families'
+            });
         }
-        if(familyData){
+        else if(_id.length < 24 || _id.length > 24){
+            res.render('error', {
+                error: 'Family Page Not Found',
+                status: 404,
+                backPath: '/families'
+            });
+        }
+        else if(familyData){
             const family = JSON.parse(familyData);
             res.render('adminPanel', {
                 familyName: family.familyName,
                 familyMembers: family.familyMembers,
                 savings: family.savings,
-                familyId: _id
+                familyId: _id,
+                name: 'Admin'
             });
         }
     });
 }));
 
-app.get('/families/*', (req,res)=>{
-    //render error page!! 404 for family not found
-});
-
+//Error page for page not found status 404
 app.get('*', (req,res)=>{
-    //render error page!! 404 Page not found
+    res.render('error', {
+        error: 'Page Not Found',
+        status: 404
+    });
 });
 
 app.listen(port, () => {

@@ -22,7 +22,11 @@ if(addSavingsButton){
     addSavingsButton.addEventListener('click', (e)=>{
 
     //value in the input field - how many we would like to add
-        const addBudget = parseInt(input.value);
+        let addBudget = parseInt(input.value);
+    //input should take only positive values so any negative will be change back to positive
+        if(addBudget < 0){
+            addBudget *= -1;
+        }
     //add input value to a savings balance
         const savings = earlierSavings += addBudget;
     //data to send by fetch option
@@ -35,25 +39,18 @@ if(addSavingsButton){
                 'Content-Type': 'application/json'
             }
         }
-
-        if(input.value <  0){
-            // addSavingsButton.removeAttribute('onClick');
-            e.preventDefault();
-            errorP.textContent = 'Value cannot be negative';
-
-        }else{
-            //onClick="window.location.reload()"
-            // addSavingsButton.setAttribute('onClick','window.location.reload()');
-         // fetch new savings balance to the api patch endpoint
-            fetch('http://localhost:3000/api/families/' + id, options);
-        }
+        fetch('http://localhost:3000/api/families/' + id, options);
     });
 }
 //USER PANEL ADD EXPENSES event listener
 if(addExpensesButton){
     addExpensesButton.addEventListener('click', (e)=>{
     //value in the input field - how many we would like to take from budget
-        const addExpenses =parseInt(input.value);
+        let addExpenses =parseInt(input.value);
+    //input should take only positive values so any negative will be change back to positive
+        if(addExpenses < 0 ){
+            addExpenses *= -1;
+        }
     //subtract input value from savings balance
         const savings = earlierSavings -= addExpenses;
     //data to send by fetch option
